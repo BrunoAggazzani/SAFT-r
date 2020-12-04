@@ -6,19 +6,19 @@ const myConnection = require('express-myconnection');
 
 const app = express();
 
-//importando rutas
+// importando rutas
 const customerRoutes = require('./src/ruotes/customers');
 
-//configuracion
+// configuracion
 app.set('port', process.env.PORT || 4002);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './src/views'));
 
-//middlewares
+// middlewares
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
-//middleware: connection DDBB
+// middleware: connection DDBB
 app.use(myConnection(mysql, {
     host: 'den1.mysql4.gear.host',
     user: 'bruno',
@@ -26,13 +26,13 @@ app.use(myConnection(mysql, {
     port: 3306
 }, 'single'));
 
-//rutas
+// rutas
 app.use('/', customerRoutes);
 
-//static files
+// static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-//conexion servidor
+// conexion servidor
 app.listen(app.get('port'), () => {
     console.log('Servidor en puerto 4002')
 });
