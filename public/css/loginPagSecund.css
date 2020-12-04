@@ -1,0 +1,56 @@
+.contenedor-login {
+    position: relative !important;
+    display: inline-block;
+    width: 100%;
+    padding-top: 100px;
+    justify-content: center;
+    justify-items: center;
+}
+
+.filaLogin {
+    width: inherit;
+    padding-left: inherit;
+}
+
+.col-login {
+    position: relative !important;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.col-login h1 {
+    color: #eee56e;
+}
+
+.form-group {
+    display: flex;
+    position: relative;
+}
+
+.btn-login {
+    background-color: rgb(107, 94, 57) !important;
+    box-shadow: 0 5px 22px 0 rgba(0, 0, 0, 1) !important;
+}
+
+@media screen and (max-width: 500px) {
+    .contenedor-login {
+        position: relative !important;
+        display: -webkit-inline-box;
+        width: 100%;
+        padding-top: 100px;
+        padding: 20px 10px;
+    }
+    .col-login {
+        position: relative !important;
+    }
+    html {
+        height: auto;
+    }
+}
+
+
+/*Clases para javaScript*/
+
+.marcaCampoVacio {
+    border: 3px solid red !important;
+}

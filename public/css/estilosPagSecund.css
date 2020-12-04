@@ -1,0 +1,224 @@
+.container-encabezado-pagSecund {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.fondo-encabezado-pagSecund {
+    position: absolute !important;
+    background-repeat: no-repeat !important;
+    background-position: left !important;
+    display: inline-block;
+    background-size: cover !important;
+    filter: brightness(50%);
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Inicio boton superior */
+
+.menuIngreso-pagSecund a {
+    color: white !important;
+    font-size: 12px;
+    background-color: rgb(107, 94, 57) !important;
+}
+
+
+/* Fin boton superior */
+
+
+/* Inicio titulo y subtitulo */
+
+.tituloysubtitulo-pagSecund {
+    display: inline-block !important;
+    position: relative !important;
+    width: 100%;
+    margin-top: 200px;
+}
+
+.titulo-pagSecund p {
+    font-size: 5rem;
+}
+
+.titulo-pagAdmin p {
+    font-size: 5rem;
+}
+
+@media screen and (max-width: 800px) {
+    .titulo-pagSecund p {
+        font-size: 3.5rem !important;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .titulo-pagAdmin p {
+        font-size: 3.5rem !important;
+    }
+}
+
+
+/* Fin titulo y subtitulo */
+
+input:invalid {
+    border: 2px solid rgb(255, 217, 0) !important;
+}
+
+select:invalid {
+    border: 2px solid rgb(255, 217, 0) !important;
+}
+
+
+/*input:invalid:required {
+    background-image: linear-gradient(to right, pink, lightgreen);
+  }*/
+
+input:valid {
+    border: 1px solid rgb(35, 230, 18) !important;
+}
+
+select:valid {
+    border: 1px solid rgb(35, 230, 18) !important;
+}
+
+table {
+    color: #fff !important;
+    margin-top: 1rem !important;
+    margin-bottom: 5rem !important;
+    border: none !important;    
+}
+
+.table{
+    width: 80%;
+}
+
+.navtablero{
+    color: white;
+    /*background-color: rgb(110, 90, 40);*/
+    background: linear-gradient(to top, rgba(110, 90, 40, 0.5), rgba(202, 163, 54, 0.5)) no-repeat !important;
+    justify-content: center;
+    padding-bottom: 16px !important;
+    
+}
+
+.nav-boton-tablero {
+    min-width: 110px !important;    
+    color: rgb(7, 7, 7) !important;
+    /*background-color: rgba(131, 107, 56, 0.87) !important;*/
+    background: linear-gradient(to top, rgba(110, 90, 40, 0.87), rgba(151, 113, 7, 0.315)) no-repeat !important;    
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 1) !important;
+    margin-right: 10px !important;
+    line-height: 1 !important;
+    text-transform: none !important;
+    font-size: 12px !important;
+    padding: 10px 10px 8px !important;
+    margin-top: 10px !important;
+}
+
+.nav-boton-tablero.active {
+    color: white !important;
+    box-shadow: 0 0.4px 2px 0 rgba(0, 0, 0, 1) !important;
+    background-color: rgba(104, 85, 43, 0.87) !important;
+    margin-top: 10px !important;
+}
+
+strong h3 {
+    color: red;
+}
+
+h4 {
+    color: rgb(7, 7, 7);
+}
+
+.btn-volver {
+    position: relative;
+    margin-bottom: 3rem !important;
+}
+
+.row2 {
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    flex-basis: 0 !important;
+    text-size-adjust: auto;
+    font-style: italic;    
+    position: relative !important;
+    justify-content: center;
+}
+
+thead {
+    color: black;
+    border-bottom: peru !important;
+    text-align: -webkit-center !important;
+}
+
+tbody {
+    border: none !important;
+    text-align: left;
+}
+
+.form-tablero {
+    padding-top: 10px !important;
+}
+
+.dropdown-menu-resumen{
+    background-color: transparent !important;
+    transform: translate3d(50px, 185px, 0px) !important;
+
+}
+
+.btn-masopciones {
+    width: -webkit-fill-available;
+    text-transform: none !important;
+    border: 0px !important;
+    color: white !important;
+    font-size: 14px !important;
+    margin-right: 0px !important;
+}
+
+hr {
+    height: 1.8px !important;
+    color: rgb(49, 48, 48) !important;
+    opacity: 1 !important;
+}
+
+.alert p {
+    color: black !important;
+}
+
+
+
+.row-bruno {
+    display: inline-block !important;
+    position: relative !important;
+    text-align: -webkit-center;
+    justify-content: center;
+    width: 100% !important; 
+}
+
+ .grafico {
+    display: inline-block !important;
+    position: relative !important;
+ }
+
+ .table-bruno {
+    display: table;
+    position: relative !important;    
+    width: 80% !important;               
+ }
+
+ .oculto {
+     display: none;
+ }
+
+ #nombreDiv {   
+    overflow:auto;
+    width:80%;    
+ }
+
+ #celdaunida {
+     text-transform: uppercase;
+     text-align: center !important;
+     color: rgb(255, 208, 0);
+ }
+
+ 

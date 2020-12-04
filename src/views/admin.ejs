@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W04YX9VRV2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-W04YX9VRV2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel=icon href='/imagenes/favicon.ico' sizes="32x32" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="/css/estilosIndex.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilosPagSecund.css">
+    <link rel="stylesheet" type="text/css" href="/css/loginPagSecund.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital@1&family=Open+Sans:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
+</head>
+
+<body style="background: url(/imagenes/img-noise-1440x1080.png)">
+    <!-- Encabezado -->
+    <div class="container-encabezado-pagSecund">
+
+        <!--NavBar boton inicio-->
+        <div class="row">
+            <div class="navbar-btnIni fixed-top dropdown mb-3">
+                <button id="dropdownMenuBoton" type="button" class="btn menuIngreso-pagSecund">
+                    <a href="/" ><b>Volver</b></a>
+                </button>
+            </div>
+        </div>
+        <!--Fin NavBar boton inicio-->
+
+        <!--Titulo y subtitulo-->
+        <div class="fondo-encabezado-pagSecund" style="background: url(/imagenes/taxi.jpg)"></div>
+
+        <div class="tituloysubtitulo-pagSecund">
+
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="titulo-pagAdmin">
+                        <p>Administrador</p>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <div class="subtitulo">
+                        <p>Sistema para la Administración de Flotas de Taxis</p>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+            </div>
+
+        </div>
+        <!--Fin Titulo y subtitulo-->
+
+    </div>
+    <!-- Fin Encabezado -->
+
+    <!-- Login -->
+    <div class="contenedor-login">
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+            <div class="col-login col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <form id="form-login" action="/loginAdmin" method="post">
+                    <h1>Iniciar sesión</h1>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="input-usuario" name="usuario" placeholder="Usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="input-password" name="password" placeholder="Contraseña" required>
+                    </div>
+                    <br>
+                    <div>
+                        <button type="submit" id="btn-login" class="btn btn-login btn-primary">
+                            <b>Ingresar</b>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+            <div class="col-login col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <form id="form-login" action="/regAdmin" method="post">
+                    <h1>Registrarse</h1>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="input-usuario-reg" maxlength="20" name="usuarioreg" placeholder="Usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="input-password-reg" maxlength="20" name="passwordreg" placeholder="Contraseña" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="input-mail-reg" maxlength="45" name="mailreg" placeholder="E-mail" required>
+                    </div>
+                    <br>
+                    <div>
+                        <button type="submit" id="btn-login" class="btn btn-login btn-primary">
+                            <b>Enviar</b>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+        </div>
+    </div>
+    <!-- fin login -->
+
+    <!--Footer-->
+    <div class="containerFooter">
+        <footer class="page-footer font-small blue">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center">© 2020 Copyright:
+                <a href="#"> By Bruno Aggazzani</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+    </div>
+    <!--Fin Footer-->
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--<script type="text/javascript" src="/js/loginPagAdmin.js"></script>-->
+
+</body>
+
+</html>

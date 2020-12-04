@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W04YX9VRV2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-W04YX9VRV2');
+    </script>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script>
+        const movile = JSON.parse('<%-jsonManTotmovil%>');        
+
+        var mobil = [['movil', 'total']];      
+        for(var i = 0; i < movile.length; i++) {            
+            mobil[i+1] = Object.values(movile[i]);
+        }
+        console.log(mobil);       
+        
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(dibujarGrafico);
+        function dibujarGrafico() {
+            
+        // Tabla de datos: valores y etiquetas de la gráfica                        
+        var datos = google.visualization.arrayToDataTable(mobil);
+
+        var view = new google.visualization.DataView(datos);
+        view.setColumns([0, 1,
+                    { calc: "stringify",
+                        sourceColumn: 1,
+                        type: "string",
+                        role: "annotation" }
+                    ]);
+
+        var options = {
+            title: 'Comparativa de total de gastos de mantenimiento por movil',
+            width: $(window).width()*0.80,
+            //height: $(window).height()*0.35,             
+            backgroundColor: {
+                    fill:'rgb(125, 123, 128)'     
+            },
+            hAxis: {
+                    title: 'Total gastos',
+                    ticks: [0]
+                    
+            },
+            vAxis: {
+                    title: 'Movil'
+            },
+            bar: {
+                    groupWidth: '65%'
+            },
+            legend: { 
+                    position: "none" 
+            },            
+            animation: {
+                duration: 2000,
+                startup: "true"
+            }            
+        }
+        // Dibujar el gráfico
+        new google.visualization.BarChart( 
+        //ColumnChart sería el tipo de gráfico a dibujar
+            document.getElementById('GraficoMovil')
+        ).draw(view, options);
+        }
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mantenimiento</title>
+    <link rel=icon href='/imagenes/favicon.ico' sizes="32x32" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="/css/estilosIndex.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilosPagSecund.css">
+    <link rel="stylesheet" type="text/css" href="/css/loginPagSecund.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital@1&family=Open+Sans:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
+</head>
+
+<body style="background: url(/imagenes/img-noise-1440x1080.png)">
+    <!-- Encabezado -->
+    <div class="container-encabezado-pagSecund">
+
+        <!--NavBar boton inicio-->
+        <div class="row">
+            <div class="navbar-btnIni fixed-top dropdown mb-3">
+                <form id="form-login" action="/redirCargasyConsultas" method="post">
+                    <% if (data) { %>
+                        <% const admin = data.admin; %>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="admin" value="<%=admin%>" style="display: none">
+                            </div>
+                            <% } %>
+                                <button type="submit" id="btn-login" class="btn btn-login btn-primary">
+                            <b>Volver</b>
+                        </button>
+                </form>
+            </div>
+        </div>
+        <!--Fin NavBar boton inicio-->
+
+        <!--Titulo y subtitulo-->
+        <div class="fondo-encabezado-pagSecund" style="background: url(/imagenes/taxi.jpg)"></div>
+
+        <div class="tituloysubtitulo-pagSecund">
+
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="titulo-pagAdmin">
+                        <p>Administrador</p>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <div class="subtitulo">
+                        <p>Mantenimientos hechos este mes</p>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+            </div>
+
+        </div>
+        <!--Fin Titulo y subtitulo-->
+
+    </div>
+    <!-- Fin Encabezado -->
+
+    <nav class="nav navtablero nav-tabs navbar-expand-lg-center">
+        <!-- Al link que este activo se le agrega "nav-link-tablero" en cada vista-->
+        <form id="form-login" action="/recaudaciones" method="post">              
+            <div style="display: none">
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="admin" value="<%=data.admin%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="mes" value="<%=fecha.mes%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="anio" value="<%=fecha.anio%>" style="display: none">
+                </div>
+            </div>                    
+            <button type="submit" id="btn-login" class="nav-boton-tablero btn btn-primary">
+                <b>Recaudaciones</b>
+            </button>
+        </form>
+        <form id="form-login" action="/comisiones" method="post">              
+            <div style="display: none">
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="admin" value="<%=data.admin%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="mes" value="<%=fecha.mes%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="anio" value="<%=fecha.anio%>" style="display: none">
+                </div>
+            </div>                    
+            <button type="submit" id="btn-login" class="nav-boton-tablero btn btn-primary">
+                <b>Comisiones</b>
+            </button>
+        </form>
+        <form id="form-login" action="/entregas" method="post">              
+            <div style="display: none">
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="admin" value="<%=data.admin%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="mes" value="<%=fecha.mes%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="anio" value="<%=fecha.anio%>" style="display: none">
+                </div>
+            </div>                    
+            <button type="submit" id="btn-login" class="nav-boton-tablero btn btn-primary">
+                <b>Entregas</b>
+            </button>
+        </form>
+        <form id="form-login" action="/combustible" method="post">              
+            <div style="display: none">
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="admin" value="<%=data.admin%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="mes" value="<%=fecha.mes%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="anio" value="<%=fecha.anio%>" style="display: none">
+                </div>
+            </div>                    
+            <button type="submit" id="btn-login" class="nav-boton-tablero btn btn-primary">
+                <b>Combustible</b>
+            </button>
+        </form>
+        <form id="form-login" action="/mantenimiento" method="post">              
+            <div style="display: none">
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="admin" value="<%=data.admin%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="mes" value="<%=fecha.mes%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="anio" value="<%=fecha.anio%>" style="display: none">
+                </div>
+            </div>                    
+            <button type="submit" id="btn-login" class="nav-boton-tablero btn btn-primary active">
+                <b>Mantenimiento</b>
+            </button>
+        </form>
+        <!--##############################################################################-->
+        <form id="form-login" action="/ingrNeto" method="post">              
+            <div style="display: none">
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="admin" value="<%=data.admin%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="mes" value="<%=fecha.mes%>" style="display: none">
+                </div>
+                <div class="form-tablero form-group">
+                    <input type="text" class="form-control" name="anio" value="<%=fecha.anio%>" style="display: none">
+                </div>
+            </div>                    
+            <button type="submit" id="btn-login" class="nav-boton-tablero btn btn-primary">
+                <b>Ing. neto</b>
+            </button>
+        </form>
+        <!--##############################################################################-->
+    </nav>
+    <br>
+
+<!--Tabla de resultados-->
+
+        
+    <div class="row-bruno centered"><!--############################################################################-->            
+        
+        <div class="row-bruno centered">            
+            <div class="col-bruno">
+                <div class="grafico" id="GraficoMovil"></div>                 
+            </div>
+            <br>           
+        </div>
+        <br>
+
+        <table class="table table-bruno table-bordered">                    
+            <thead>                        
+                <tr>
+                    <td><b>Móvil</b></td>
+                    <td><b>Mantenimiento</b></td>                                
+                </tr>
+            </thead>
+            <tbody>
+                <% if (manten) { %>
+                    <% for(var i = 0; i < manten.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= manten[i].movil %>
+                            </td>
+                            <td>
+                                $ <%= manten[i].manmovil %>
+                            </td>                                
+                        </tr>
+                    <% } %>
+                <% } %>
+                <% if (manten == "") { %>
+                    <tr>                            
+                        <td id="celdaunida" colspan="2"><b>No se cargaron gastos de mantenimiento</b></td>                                                         
+                    </tr>
+                <% } %>
+            </tbody>                    
+        </table>
+                  
+    </div>
+            
+
+
+<!--Fin tabla de resultados-->
+    
+    <!--Footer-->
+    <div class="containerFooter">
+        <footer class="page-footer font-small blue">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center">© 2020 Copyright:
+                <a href="#"> By Bruno Aggazzani</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+    </div>
+    <!--Fin Footer-->        
+
+    <!-- jQuery primero, luego Popper.js, luego Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

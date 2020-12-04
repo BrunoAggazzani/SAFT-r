@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W04YX9VRV2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-W04YX9VRV2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>confirmacionTicket</title>
+    <link rel=icon href='/imagenes/favicon.ico' sizes="32x32" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="/css/estilosIndex.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilosPagSecund.css">
+    <link rel="stylesheet" type="text/css" href="/css/loginPagSecund.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital@1&family=Open+Sans:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
+</head>
+
+<body style="background: url(/imagenes/img-noise-1440x1080.png)">
+    <!-- Encabezado -->
+    <div class="container-encabezado-pagSecund">
+
+        <!--NavBar boton inicio-->
+        <div class="row">
+            <div class="navbar-btnIni fixed-top dropdown mb-3">
+                <button id="dropdownMenuBoton" type="button" class="btn menuIngreso-pagSecund">
+                    <a href="/" ><b>Salir</b></a>
+                </button>
+            </div>
+        </div>
+        <!--Fin NavBar boton inicio-->
+
+        <!--Titulo y subtitulo-->
+        <div class="fondo-encabezado-pagSecund" style="background: url(/imagenes/taxi.jpg)"></div>
+
+        <div class="tituloysubtitulo-pagSecund">
+
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="titulo-pagAdmin">
+                        <p>Choferes</p>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <div class="subtitulo">
+                        <p>Confirmacion de datos</p>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+            </div>
+
+        </div>
+        <!--Fin Titulo y subtitulo-->
+
+    </div>
+    <!-- Fin Encabezado -->
+
+    <!--Tabla de comisiones-->
+
+    <div class="contenedor-login">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+            <div class="col-login col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <% if (data) { %>
+                    <% const aviso = data.alert; %>
+                    <div class="alert alert-dark" role="alert">
+                        <strong><h3>Confirme!</h3></strong><h4><%=aviso%></h4>
+                        <br>
+                        <p><b>Nro de ticket: </b><%=data.nroTicket%></p><br>
+                        <p><b>Fecha: </b><%=data.fecha%></p><br>
+                        <p><b>Kms ocupados: </b><%=data.kmOcup%></p><br>
+                        <p><b>Kms libres: </b><%=data.kmLibres%></p><br>
+                        <p><b>Viajes: </b><%=data.viajes%></p><br>
+                        <p><b>Recaudación: </b><%=data.recaud%></p><br>
+                        <p><b>Combustible: </b><%=data.combustible%></p><br>
+                        <p><b>Gastos varios: </b><%=data.gastos%></p><br>
+                        <p><b>Chofer: </b><%=data.user%></p><br>
+                        <p><b>Nro de movil: </b><%=data.movil%></p><br>
+                        <p><b>Día chofer: </b><%=data.mje%></p><br>
+                        <%if(data.mje == "SI"){%>
+                            <p>Usted ha marcado la casilla 'Día chofer'. Eso significa que el 100% de los ingresos netos de este ticket le corresponden al chofer.</p><br>
+                        <%}%>                      
+                    </div>                                        
+                <% } %>
+                <br>
+                <div>
+                    <form id="form-login" action="/redirCargaTicket" method="post">
+                        <% if (data) { %>
+                            <% const usuar = data.user; %>
+                            <% const movi = data.movil; %>
+                            <% const chadm = data.chadmin; %>
+                                <div class="form-group" style="display: none">
+                                    <input type="text" class="form-control" name="usuario" value="<%=usuar%>">
+                                </div>
+                                <div class="form-group" style="display: none">
+                                    <input type="text" class="form-control" name="movil" value="<%=movi%>">
+                                </div>
+                                <div class="form-group" style="display: none">
+                                    <input type="text" class="form-control" name="admin" value="<%=chadm%>">
+                                </div>
+                                <div class="form-group" style="display: none">
+                                    <input type="date" class="form-control" name="today" value="<%=data.today%>">
+                                </div>
+                                <% } %>
+                                    <button type="submit" id="btn-login" class="btn btn-login btn-primary">
+                            <b>Modificar</b>
+                        </button>
+                    </form>
+                </div>
+                <br>
+                <div>
+                    <form id="form-login" action="/cargaTicket" method="post">
+                        <% if (data) { %>
+                            <% const usuar = data.user; %>
+                            <% const movi = data.movil; %>
+                            <% const chadm = data.chadmin; %>
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="nroticket" value="<%=data.nroTicket%>">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="fecha" value="<%=data.fecha%>">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="kmocupado" value="<%=data.kmOcup%>">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="kmlibre" value="<%=data.kmLibres%>">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="viajes" value="<%=data.viajes%>">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="recaudacion" value="<%=data.recaud%>">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="combustible" value="<%=data.combustible%>">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="gastos" value="<%=data.gastos%>">
+                            </div>                            
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="usuario" value="<%=usuar%>">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="movil" value="<%=movi%>">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="diachofer" value="<%=data.diachofer%>">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <input type="text" class="form-control" name="admin" value="<%=chadm%>">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <input type="date" class="form-control" name="today" value="<%=data.today%>">
+                            </div>
+                        <% } %>
+                        <button type="submit" id="btn-login" class="btn btn-login btn-primary">
+                            <b>Confirmar</b>
+                        </button>
+                    </form>
+                </div>                
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+        </div>
+    </div>
+
+    <!--Fin tabla de comisiones-->
+
+    <!--Footer-->
+    <div class="containerFooter">
+        <footer class="page-footer font-small blue">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center">© 2020 Copyright:
+                <a href="#"> By Bruno Aggazzani</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+    </div>
+    <!--Fin Footer-->
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--<script type="text/javascript" src="/js/loginPagAdmin.js"></script>-->
+
+</body>
+
+</html>

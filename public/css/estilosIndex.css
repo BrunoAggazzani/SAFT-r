@@ -1,0 +1,234 @@
+html {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    /*height: 100%;*/
+    box-sizing: content-box !important;
+    color: white !important;
+}
+
+@media screen and (max-width: 350px) {
+    html {
+        width: min-content;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    html {
+        min-height: 100%;
+    }
+}
+
+body {
+    display: block;
+    box-sizing: border-box;
+    margin: 0 auto !important;
+    border-top: 0px;
+    margin-top: 0px !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    color: #fff !important;
+    /*background: linear-gradient(to bottom, rgba(228, 171, 49, 0.87), rgb(7, 7, 7)) no-repeat !important;*/
+    /*background: linear-gradient(to bottom, rgb(110, 90, 40), rgba(7, 7, 7)) no-repeat !important;*/
+    /*background: rgb(110, 90, 40) no-repeat !important;*/
+    
+}
+
+.fondo-encabezado {
+    position: fixed !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    filter: brightness(50%);
+    min-height: 100vh;
+    width: 100%;
+}
+
+.fondo-encabezadoquiensoy {
+    filter: brightness(15%);
+}
+
+
+/* Inicio boton superior */
+
+.navbar-btnIni {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+    padding-right: 10px;
+    position: fixed !important;
+    background-color: transparent;
+}
+
+.btn {
+    margin-right: 15px;
+}
+
+.btnsoy {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 35px !important;
+    background-color: transparent;
+}
+
+
+
+.btn-consulchof {
+    margin-top: 0px;
+}
+
+#dropdownMenuBoton {
+    background-color: rgb(107, 94, 57) !important;
+    box-shadow: 0 3px 8px 0 rgba(252, 250, 250, 0.748) !important;
+}
+
+#btn-contacto {    
+    box-shadow: none !important;
+    background-color: rgba(107, 94, 57, 0.295) !important;
+}
+
+.menuIngreso {
+    max-width: 130px !important;
+}
+
+.menuIngreso a {
+    color: white !important;
+    background-color: rgb(107, 94, 57) !important;    
+}
+
+
+.dropdown-item{    
+    padding-right: 0px !important;
+    line-height: normal !important;    
+    box-sizing: border-box !important;
+}
+
+.dropdown-menu{    
+    padding-right: 0px !important;
+    line-height: normal;
+    box-sizing: border-box !important;
+    min-width: 7.1rem !important;
+}
+
+
+
+/* Fin boton superior */
+
+
+/* Inicio titulo y subtitulo */
+
+.tituloysubtitulo {
+    display: block !important;
+    position: relative !important;
+    width: 100%;
+    margin-top: 200px;
+}
+
+.tituloysubtituloquiensoy {
+    margin-top: 100px !important;
+}
+
+.row {
+    --bs-gutter-x: 0 !important;
+    position: relative;
+    display: inline-block;
+}
+
+p {
+    color: rgb(255, 255, 255) !important;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+.titulo {
+    align-items: center;
+}
+
+.titulo p {
+    font-size: 7rem;
+}
+
+.subtitulo {
+    margin-top: -2.5%;
+    align-items: center;
+}
+
+.subtitulo p {
+    font-size: 1rem;
+}
+
+.subtituloquiensoy p {
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+    text-align: justify;
+    font-family: auto;
+    font-size: 1.2rem;
+    color: rgb(243, 198, 73) !important;
+}
+
+.subtituloquiensoy h4 {
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+    text-align: justify;
+    color: rgb(243, 198, 73) !important;
+}
+
+.quesaft {
+    align-items: center; 
+    text-align: center;
+    font-size: x-large; 
+    padding-bottom: 200px;
+}
+
+.quesaft a {    
+    color: rgb(243, 198, 73);
+}
+
+
+
+/* Fin titulo y subtitulo */
+
+
+/* Inicio footer */
+
+.containerFooter {
+    background-color: transparent;
+    display: flex;
+    bottom: 0;
+    position: fixed;
+    height: 30px;
+    align-items: center;
+}
+
+.page-footer {
+    align-content: center !important;
+}
+
+.footer-copyright {
+    align-content: center!important;
+    padding-left: 15px;
+    font-size:small;
+}
+
+.footer-copyright a {
+    color: #fff !important;
+}
+
+audio { 
+    width: 600px; 
+    box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
+    border-radius: 90px;
+    transform: scale(1.05);
+  }
+
+  .containerFooter {
+      display: none !important;
+  }  
+
+/* Fin footer */

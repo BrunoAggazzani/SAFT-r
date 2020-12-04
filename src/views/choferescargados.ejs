@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W04YX9VRV2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-W04YX9VRV2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choferes cargados</title>
+    <link rel=icon href='/imagenes/favicon.ico' sizes="32x32" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="/css/estilosIndex.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilosPagSecund.css">
+    <link rel="stylesheet" type="text/css" href="/css/loginPagSecund.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital@1&family=Open+Sans:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
+</head>
+
+<body style="background: url(/imagenes/img-noise-1440x1080.png)">
+    <!-- Encabezado -->
+    <div class="container-encabezado-pagSecund">
+
+        <!--NavBar boton inicio-->
+        <div class="row">
+            <div class="navbar-btnIni fixed-top dropdown mb-3">
+                <button id="dropdownMenuBoton" type="button" class="btn menuIngreso-pagSecund">
+                    <a href="/" ><b>Inicio</b></a>
+                </button>
+            </div>
+        </div>
+        <!--Fin NavBar boton inicio-->
+
+        <!--Titulo y subtitulo-->
+        <div class="fondo-encabezado-pagSecund" style="background: url(/imagenes/taxi.jpg)"></div>
+
+        <div class="tituloysubtitulo-pagSecund">
+
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="titulo-pagAdmin">
+                        <p>Administrador</p>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <div class="subtitulo">
+                        <p>Choferes cargados</p>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+            </div>
+
+        </div>
+        <!--Fin Titulo y subtitulo-->
+
+    </div>
+    <!-- Fin Encabezado -->
+
+    <!--Tabla de listado de choferes-->
+
+    
+        <div class="row-bruno centered">
+            
+                <table class="table table-bruno table-bordered">
+                    <thead>
+                        <tr>
+                            <td><b>Nombre</b></td>
+                            <td><b>Usuario</b></td>
+                            <td><b>Password</b></td>
+                            <td><b>X</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% if (data) { %>
+                        <% for(var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%= data[i].nombre %>
+                                </td>
+                                <td>
+                                    <%= data[i].usuario %>
+                                </td>
+                                <td>
+                                    <%= data[i].pass %>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                    <% if (data == "") { %>
+                        <tr>                            
+                            <td id="celdaunida" colspan="3"><b>Usted aun no posee choferes cargados</b></td>                                                         
+                        </tr>
+                    <% } %>
+                    </tbody>
+                </table>                
+                <form id="form-login" action="/redirCargasyConsultas" method="post">                   
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="admin" value="<%=admin.admin %>" style="display: none">
+                    </div>    
+                    <button type="submit" id="btn-login" class="btn btn-volver btn-login btn-primary">
+                        <b>Volver</b>
+                    </button>                       
+                </form>
+            
+        </div>
+   
+
+    <!--Fin tabla de listado de choferes-->
+
+    <!--Footer-->
+    <div class="containerFooter">
+        <footer class="page-footer font-small blue">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center">© 2020 Copyright:
+                <a href="#"> By Bruno Aggazzani</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+    </div>
+    <!--Fin Footer-->
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--<script type="text/javascript" src="/js/loginPagAdmin.js"></script>-->
+
+</body>
+
+</html>
