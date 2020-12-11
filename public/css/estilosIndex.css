@@ -227,8 +227,6 @@ audio {
     transform: scale(1.05);
   }
 
-  .containerFooter {
-      display: none !important;
-  }  
+ 
 
 /* Fin footer */
